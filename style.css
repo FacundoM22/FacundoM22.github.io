@@ -1,25 +1,82 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background: #f5f5f5;
     color: #333;
+    padding-top: 80px; /* Para que el contenido no quede debajo del menú fijo */
 }
 
+/* Barra superior / Menú */
+.top-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.95);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+.top-menu .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.top-menu .menu a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.top-menu .menu a:hover {
+    color: #1a73e8;
+    transform: translateY(-2px);
+}
+
+/* Header / Presentación */
 header {
     text-align: center;
-    padding: 50px 20px;
-    background: #1a1a1a;
+    padding: 100px 20px 50px 20px;
+    background: linear-gradient(to right, #1a1a1a, #333);
     color: #fff;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
 }
 
 header img.perfil {
     width: 150px;
     border-radius: 50%;
-    margin-top: 20px;
+    border: 3px solid #1a73e8;
+    transition: transform 0.3s;
 }
 
+header img.perfil:hover {
+    transform: scale(1.05);
+}
+
+/* Secciones */
 section {
     padding: 50px 20px;
 }
@@ -29,6 +86,7 @@ h2 {
     margin-bottom: 30px;
 }
 
+/* Proyectos */
 .proyecto {
     background: #fff;
     padding: 20px;
@@ -49,8 +107,14 @@ h2 {
     margin-top: 10px;
     color: #1a73e8;
     text-decoration: none;
+    font-weight: bold;
 }
 
+.proyecto a:hover {
+    text-decoration: underline;
+}
+
+/* Habilidades */
 ul {
     list-style: none;
     text-align: center;
@@ -61,9 +125,25 @@ ul li {
     display: inline-block;
     margin: 0 15px;
     font-weight: bold;
+    background: #1a73e8;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: transform 0.3s, background 0.3s;
 }
 
+ul li:hover {
+    transform: scale(1.1);
+    background: #155ab6;
+}
+
+/* Contacto */
 #contacto a {
     color: #1a73e8;
     text-decoration: none;
+    font-weight: bold;
+}
+
+#contacto a:hover {
+    text-decoration: underline;
 }

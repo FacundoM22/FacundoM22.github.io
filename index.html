@@ -3,63 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Facundo</title>
+  <title>Mi Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
-  <!-- Barra de navegación -->
-  <nav>
-    <div class="logo">Facundo</div>
-    <ul class="menu">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
 
-  <!-- Hero principal -->
-  <header id="inicio">
-    <div class="hero-content">
-      <h1>Hola, soy <span>Facundo</span></h1>
-      <p>Consultor LIMS & Especialista en Integración de Instrumentos</p>
-      <a href="#proyectos" class="btn">Ver mis proyectos</a>
-    </div>
+  <!-- Header -->
+  <header>
+    <h1>Mi Portfolio</h1>
+    <p>Consultor LIMS | Integración de Instrumentos | Desarrollo</p>
   </header>
 
-  <!-- Sección proyectos -->
-  <section id="proyectos">
-    <h2>Mis Proyectos</h2>
-    <div class="grid">
-      <div class="proyecto">
-        <img src="https://via.placeholder.com/400x200" alt="Proyecto 1">
-        <h3>Proyecto 1</h3>
-        <p>Integración de balanzas Sartorius con sistemas LIMS.</p>
-        <a href="#">Ver más</a>
+  <!-- Habilidades -->
+  <section id="habilidades">
+    <h2>Habilidades</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/python.png" alt="Python"></div>
+        <div class="swiper-slide"><img src="img/sql.png" alt="SQL"></div>
+        <div class="swiper-slide"><img src="img/docker.png" alt="Docker"></div>
+        <div class="swiper-slide"><img src="img/git.png" alt="Git"></div>
+        <div class="swiper-slide"><img src="img/js.png" alt="JavaScript"></div>
       </div>
-      <div class="proyecto">
-        <img src="https://via.placeholder.com/400x200" alt="Proyecto 2">
-        <h3>Proyecto 2</h3>
-        <p>Simulador de impresoras con Tkinter.</p>
-        <a href="#">Ver más</a>
-      </div>
+      <!-- Paginación -->
+      <div class="swiper-pagination"></div>
+      <!-- Flechas -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </section>
 
-  <!-- Contacto -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Podés escribirme en:</p>
-    <div class="redes">
-      <a href="mailto:facundo@mail.com">✉️ Email</a>
-      <a href="https://github.com/FacundoM22" target="_blank">💻 GitHub</a>
-      <a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Facundo - Portfolio</p>
-  </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

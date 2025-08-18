@@ -1,66 +1,213 @@
+:root {
+  --azul-principal: #002D72;
+  --celeste-acento: #00AEEF;
+  --blanco: #FFFFFF;
+  --gris-claro: #F5F5F5;
+  --gris-texto: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
-  margin: 0;
-  background-color: var(--blanco);
+  background: var(--blanco);
   color: var(--gris-texto);
 }
 
-/* HEADER */
-header {
-  background-color: var(--azul-principal);
-  color: var(--blanco);
-  padding: 1rem 2rem;
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  background: var(--azul-principal);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blanco);
 }
 
-/* NAV */
-nav ul {
+nav .menu {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 1.5rem;
 }
 
-nav ul li a {
+nav .menu li a {
   text-decoration: none;
   color: var(--blanco);
-  font-weight: bold;
+  font-weight: 600;
   transition: color 0.3s;
 }
 
-nav ul li a:hover {
+nav .menu li a:hover {
   color: var(--celeste-acento);
 }
 
-/* SECCIONES */
+header {
+  background: var(--azul-principal);
+  color: var(--blanco);
+  height: 100vh;
+  padding-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+.hero-content h1 span {
+  color: var(--celeste-acento);
+}
+
+.hero-content p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+.btn {
+  background: var(--celeste-acento);
+  color: var(--blanco);
+  padding: 0.8rem 1.8rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: var(--azul-principal);
+}
+
 section {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
 }
 
 section:nth-child(even) {
-  background-color: var(--gris-claro);
+  background: var(--gris-claro);
 }
 
-/* BOTONES */
-button, .btn {
-  background-color: var(--celeste-acento);
-  border: none;
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--azul-principal);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.proyecto {
+  background: var(--blanco);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.proyecto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.proyecto img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.proyecto h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.proyecto a {
+  text-decoration: none;
+  color: var(--celeste-acento);
+  font-weight: 600;
+}
+
+.proyecto a:hover {
+  text-decoration: underline;
+}
+
+/* Carrusel Swiper */
+.swiper {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 3rem 0;
+}
+
+.swiper-slide {
+  background: var(--blanco);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.swiper-slide img {
+  max-width: 120px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.swiper-slide img:hover {
+  transform: scale(1.1);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--celeste-acento);
+}
+
+.swiper-pagination-bullet {
+  background: var(--celeste-acento);
+}
+
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.redes a {
+  color: var(--azul-principal);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.redes a:hover {
+  color: var(--celeste-acento);
+}
+
+footer {
+  background: var(--azul-principal);
   color: var(--blanco);
-  padding: 0.7rem 1.5rem;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
-button:hover, .btn:hover {
-  background-color: var(--azul-principal);
+/* Ajuste para evitar que el menú tape el contenido */
+body {
+  padding-top: 4rem;
 }

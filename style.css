@@ -1,15 +1,10 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background: #f5f5f5;
     color: #333;
-    padding-top: 80px; /* Para que el contenido no quede debajo del menú fijo */
+    padding-top: 80px; /* Para que el menú fijo no tape contenido */
 }
 
 /* Barra superior / Menú */
@@ -43,37 +38,27 @@ body {
 }
 
 .top-menu .menu a:hover {
-    color: #1a73e8;
-    transform: translateY(-2px);
+    color: #1a73e8;          /* Cambio de color al pasar mouse */
+    transform: translateY(-2px); /* Efecto de “levantar” */
 }
 
-/* Header / Presentación */
+/* Header */
 header {
     text-align: center;
-    padding: 100px 20px 50px 20px;
-    background: linear-gradient(to right, #1a1a1a, #333);
+    padding: 50px 20px;
+    background: #1a1a1a;
     color: #fff;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
 }
 
 header img.perfil {
     width: 150px;
     border-radius: 50%;
-    border: 3px solid #1a73e8;
-    transition: transform 0.3s;
+    margin-top: 20px;
+    transition: transform 0.3s;  /* Transición suave */
 }
 
 header img.perfil:hover {
-    transform: scale(1.05);
+    transform: scale(1.05);     /* Crece un poquito al pasar mouse */
 }
 
 /* Secciones */
@@ -95,6 +80,12 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.proyecto:hover {
+    transform: translateY(-5px); /* Efecto “levantar” */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .proyecto img {
@@ -102,16 +93,18 @@ h2 {
     border-radius: 10px;
 }
 
+/* Links de proyectos */
 .proyecto a {
     display: inline-block;
     margin-top: 10px;
     color: #1a73e8;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 .proyecto a:hover {
-    text-decoration: underline;
+    color: #155ab6;  /* Oscurece el link al pasar mouse */
 }
 
 /* Habilidades */
@@ -133,8 +126,8 @@ ul li {
 }
 
 ul li:hover {
-    transform: scale(1.1);
-    background: #155ab6;
+    transform: scale(1.1);    /* Crece un poco */
+    background: #155ab6;      /* Cambio de color */
 }
 
 /* Contacto */
@@ -142,8 +135,9 @@ ul li:hover {
     color: #1a73e8;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 #contacto a:hover {
-    text-decoration: underline;
+    color: #155ab6;
 }

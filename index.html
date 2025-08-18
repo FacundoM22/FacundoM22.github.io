@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facundo - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Facundo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Barra superior / Menú -->
-    <div class="top-menu">
-        <div class="logo">Facundo</div>
-        <nav class="menu">
-            <a href="#proyectos">Proyectos</a>
-            <a href="#habilidades">Habilidades</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+  <!-- Barra de navegación -->
+  <nav>
+    <div class="logo">Facundo</div>
+    <ul class="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero principal -->
+  <header id="inicio">
+    <div class="hero-content">
+      <h1>Hola, soy <span>Facundo</span></h1>
+      <p>Consultor LIMS & Especialista en Integración de Instrumentos</p>
+      <a href="#proyectos" class="btn">Ver mis proyectos</a>
     </div>
+  </header>
 
-    <!-- Header / Presentación -->
-    <header>
-        <h1>Facundo</h1>
-        <p>Técnico en LIMS & Especialista en Integración de Instrumentos</p>
-        <img src="img/foto.jpg" alt="Foto de Facundo" class="perfil">
-    </header>
+  <!-- Sección proyectos -->
+  <section id="proyectos">
+    <h2>Mis Proyectos</h2>
+    <div class="grid">
+      <div class="proyecto">
+        <img src="https://via.placeholder.com/400x200" alt="Proyecto 1">
+        <h3>Proyecto 1</h3>
+        <p>Integración de balanzas Sartorius con sistemas LIMS.</p>
+        <a href="#">Ver más</a>
+      </div>
+      <div class="proyecto">
+        <img src="https://via.placeholder.com/400x200" alt="Proyecto 2">
+        <h3>Proyecto 2</h3>
+        <p>Simulador de impresoras con Tkinter.</p>
+        <a href="#">Ver más</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Sección de Proyectos -->
-    <section id="proyectos">
-        <h2>Proyectos Destacados</h2>
-        <div class="proyecto">
-            <img src="img/proyecto1.jpg" alt="Proyecto 1">
-            <h3>Proyecto 1</h3>
-            <p>Descripción breve del proyecto y tecnologías usadas.</p>
-            <a href="https://github.com/tuusuario/proyecto1" target="_blank">Ver Repositorio</a>
-        </div>
-        <div class="proyecto">
-            <img src="img/proyecto2.jpg" alt="Proyecto 2">
-            <h3>Proyecto 2</h3>
-            <p>Descripción breve del proyecto y tecnologías usadas.</p>
-            <a href="https://github.com/tuusuario/proyecto2" target="_blank">Ver Repositorio</a>
-        </div>
-        <!-- Agregar más proyectos según necesites -->
-    </section>
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Podés escribirme en:</p>
+    <div class="redes">
+      <a href="mailto:facundo@mail.com">✉️ Email</a>
+      <a href="https://github.com/FacundoM22" target="_blank">💻 GitHub</a>
+      <a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </section>
 
-    <!-- Sección de Habilidades -->
-    <section id="habilidades">
-        <h2>Habilidades</h2>
-        <ul>
-            <li>Python / Tkinter</li>
-            <li>Git / GitHub</li>
-            <li>Integración de Instrumentos LIMS</li>
-            <li>HTML, CSS, JS</li>
-        </ul>
-    </section>
+  <footer>
+    <p>© 2025 Facundo - Portfolio</p>
+  </footer>
 
-    <!-- Sección de Contacto -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Email: <a href="mailto:facundo@email.com">facundo@email.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/tuusuario" target="_blank">Mi perfil</a></p>
-        <p>GitHub: <a href="https://github.com/tuusuario" target="_blank">Mi GitHub</a></p>
-    </section>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

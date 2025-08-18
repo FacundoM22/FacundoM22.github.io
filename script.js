@@ -1,4 +1,5 @@
-var swiper = new Swiper(".mySwiper", {
+// Inicializa el carrusel Swiper
+const swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 30,
   loop: true,

@@ -1,10 +1,5 @@
-// Por ejemplo, smooth scroll al hacer click en enlaces
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+// Navbar efecto scroll
+window.addEventListener("scroll", function() {
+  const nav = document.querySelector("nav");
+  nav.classList.toggle("scrolled", window.scrollY > 50);
 });
-

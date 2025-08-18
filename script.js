@@ -1,4 +1,4 @@
-// Inicializa el carrusel Swiper
+// 🔹 Inicializa el carrusel Swiper
 const swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 30,
@@ -20,4 +20,12 @@ const swiper = new Swiper(".mySwiper", {
     640: { slidesPerView: 2 },
     1024: { slidesPerView: 3 }
   }
+});
+
+// 🔹 Menú hamburguesa
+const toggle = document.querySelector('.toggle');
+const menu = document.querySelector('.menu');
+
+toggle.addEventListener('click', () => {
+  menu.classList.toggle('active');
 });

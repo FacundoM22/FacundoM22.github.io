@@ -2,21 +2,44 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio - Facundo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
+  <nav>
+    <div class="logo">Facundo</div>
+    <ul class="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
 
-  <!-- Header -->
-  <header>
-    <h1>Mi Portfolio</h1>
-    <p>Consultor LIMS | Integración de Instrumentos | Desarrollo</p>
+  <header id="inicio">
+    <div class="hero-content">
+      <h1>Hola, soy <span>Facundo</span></h1>
+      <p>Consultor LIMS • Integración de Instrumentos • Desarrollo</p>
+      <a href="#proyectos" class="btn">Ver Proyectos</a>
+    </div>
   </header>
 
-  <!-- Habilidades -->
+  <section id="proyectos">
+    <h2>Proyectos Destacados</h2>
+    <div class="grid">
+      <div class="proyecto">
+        <img src="img/proyecto1.jpg" alt="Proyecto 1">
+        <h3>Proyecto 1</h3>
+        <p>Integración de balanzas Sartorius con un sistema LIMS.</p>
+        <a href="#">Ver más</a>
+      </div>
+      <!-- Podés replicar más bloques de proyecto aquí -->
+    </div>
+  </section>
+
   <section id="habilidades">
     <h2>Habilidades</h2>
     <div class="swiper mySwiper">
@@ -25,15 +48,27 @@
         <div class="swiper-slide"><img src="img/sql.png" alt="SQL"></div>
         <div class="swiper-slide"><img src="img/docker.png" alt="Docker"></div>
         <div class="swiper-slide"><img src="img/git.png" alt="Git"></div>
-        <div class="swiper-slide"><img src="img/js.png" alt="JavaScript"></div>
+        <div class="swiper-slide"><img src="img/javascript.png" alt="JavaScript"></div>
       </div>
-      <!-- Paginación -->
       <div class="swiper-pagination"></div>
-      <!-- Flechas -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
   </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Podés escribirme en:</p>
+    <div class="redes">
+      <a href="mailto:facundo@mail.com">✉️ Email</a>
+      <a href="https://github.com/FacundoM22" target="_blank">💻 GitHub</a>
+      <a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Facundo. Hecho con ♥.</p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>

@@ -21,6 +21,25 @@
   z-index: -1; /* Detrás del contenido */
 }
 
+.swiper-slide img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.swiper-slide.lims-icon {
+  height: 100px; /* aumenta la altura del contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide.lims-icon img {
+  width: 80px; /* aumenta el ícono */
+  height: 80px;
+}
+
+
 main, header, .contact-section, footer, nav {
   position: relative;
   z-index: 1;

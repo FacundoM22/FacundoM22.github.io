@@ -7,10 +7,482 @@
   <title>Portfolio - Facundo Moriconi | Especialista LIMS</title>
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+    :root {
+      --azul-principal: #002D72;
+      --celeste-acento: #00AEEF;
+      --blanco: #FFFFFF;
+      --gris-claro: #F5F5F5;
+      --gris-texto: #333333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--blanco);
+      color: var(--gris-texto);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAVEGACIÓN */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 45, 114, 0.9);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--blanco);
+    }
+
+    nav .menu {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav .menu li a {
+      text-decoration: none;
+      color: var(--blanco);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav .menu li a:hover {
+      color: var(--celeste-acento);
+    }
+
+    nav .toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--blanco);
+      cursor: pointer;
+    }
+
+    /* CONTENEDOR DE VIDEO CON TRANSICIÓN */
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translateX(-50%) translateY(-50%);
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    #video2 {
+      opacity: 0;
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 45, 114, 0.7);
+    }
+
+    /* HEADER/HERO */
+    header {
+      color: var(--blanco);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    .hero-content {
+      z-index: 2;
+      max-width: 800px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 span {
+      color: var(--celeste-acento);
+    }
+
+    .hero-content p {
+      margin: 1rem 0 2rem;
+      font-size: 1.5rem;
+      color: #e0e0e0;
+    }
+
+    .btn {
+      background: var(--celeste-acento);
+      color: var(--blanco);
+      padding: 0.8rem 1.8rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: var(--azul-principal);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 6rem 2rem;
+      position: relative;
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    section:nth-child(even) {
+      background: rgba(245, 245, 245, 0.95);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--azul-principal);
+      text-align: center;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--celeste-acento);
+      margin: 1rem auto 0;
+    }
+
+    /* PROYECTOS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .proyecto {
+      background: var(--blanco);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .proyecto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .proyecto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s;
+    }
+
+    .proyecto:hover img {
+      transform: scale(1.03);
+    }
+
+    .proyecto h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--azul-principal);
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--celeste-acento);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .project-link:hover {
+      color: var(--azul-principal);
+      text-decoration: underline;
+    }
+
+    /* CARRUSEL (Swiper) */
+    .swiper-container-wrapper {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem 3rem 4rem 3rem;
+    }
+
+    .swiper {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .swiper-wrapper {
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      padding: 0 10px;
+    }
+
+    .swiper-slide img {
+      max-width: 100px;
+      max-height: 100px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s;
+    }
+
+    .swiper-slide img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Flechas de navegación */
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--celeste-acento);
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      transition: all 0.3s;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: var(--celeste-acento);
+      color: var(--blanco);
+    }
+
+    .swiper-button-next {
+      right: 0;
+    }
+
+    .swiper-button-prev {
+      left: 0;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 1.2rem;
+    }
+
+    /* Paginación */
+    .swiper-pagination {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: var(--celeste-acento);
+      opacity: 0.5;
+      transition: all 0.3s;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    /* CONTACTO */
+    .redes {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--azul-principal);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border: 2px solid var(--celeste-acento);
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    .contact-link:hover {
+      background: var(--celeste-acento);
+      color: var(--blanco);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--azul-principal);
+      color: var(--blanco);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    /* ANIMACIONES */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes videoTransition {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+
+      nav .menu {
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 4rem;
+        right: 0;
+        background: var(--azul-principal);
+        width: 100%;
+        padding: 1rem 2rem;
+        display: none;
+      }
+
+      nav .menu.active {
+        display: flex;
+      }
+
+      nav .toggle {
+        display: block;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .swiper-container-wrapper {
+        padding: 2rem 1.5rem 3rem;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+      }
+      
+      .redes {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .contact-link {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Contenedor para los videos con transición -->
+  <div class="video-container">
+    <video id="video1" class="video-background" autoplay muted playsinline>
+      <!-- Reemplaza con tu primer video -->
+      <source src="img\video.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+    <video id="video2" class="video-background" muted playsinline>
+      <!-- Reemplaza con tu segundo video -->
+      <source src="img\video2.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
   <nav class="navbar">
     <div class="logo">Facundo Moriconi</div>
     <ul class="menu">
@@ -35,12 +507,23 @@
       <h2>Proyectos Destacados</h2>
       <div class="grid">
         <article class="proyecto">
-          <img src="img/proyecto1.jpg" alt="Integración de balanzas Sartorius con LIMS">
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Integración de balanzas Sartorius con LIMS">
           <h3>Integración de Balanzas</h3>
           <p>Integración de balanzas Sartorius con un sistema LIMS.</p>
           <a href="#" class="project-link">Ver detalles</a>
         </article>
-        <!-- Más proyectos aquí -->
+        <article class="proyecto">
+          <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Sistema de gestión de laboratorio">
+          <h3>Sistema de Gestión</h3>
+          <p>Desarrollo de sistema integral para gestión de muestras y resultados.</p>
+          <a href="#" class="project-link">Ver detalles</a>
+        </article>
+        <article class="proyecto">
+          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Automatización de procesos">
+          <h3>Automatización</h3>
+          <p>Automatización de flujos de trabajo en laboratorio clínico.</p>
+          <a href="#" class="project-link">Ver detalles</a>
+        </article>
       </div>
     </section>
 
@@ -49,11 +532,11 @@
       <div class="swiper-container-wrapper">
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="img/Python.png" alt="Lenguaje de programación Python"></div>
-            <div class="swiper-slide"><img src="img/Sql.png" alt="Base de datos SQL"></div>
-            <div class="swiper-slide"><img src="img/net.png" alt="Plataforma .NET"></div>
-            <div class="swiper-slide"><img src="img/prosmox.png" alt="Plataforma Proxmox"></div>
-            <div class="swiper-slide"><img src="img/git.png" alt="Sistema de control de versiones Git"></div>
+            <div class="swiper-slide"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Lenguaje de programación Python"></div>
+            <div class="swiper-slide"><img src="https://cdn-icons-png.flaticon.com/512/4492/4492311.png" alt="Base de datos SQL"></div>
+            <div class="swiper-slide"><img src="https://cdn-icons-png.flaticon.com/512/6132/6132221.png" alt="Plataforma .NET"></div>
+            <div class="swiper-slide"><img src="https://cdn-icons-png.flaticon.com/512/5183/5183310.png" alt="Plataforma Proxmox"></div>
+            <div class="swiper-slide"><img src="https://cdn-icons-png.flaticon.com/512/4494/4494748.png" alt="Sistema de control de versiones Git"></div>
           </div>
           <div class="swiper-pagination"></div>
           <div class="swiper-button-next" aria-label="Siguiente"></div>
@@ -78,10 +561,116 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
   <script>
     // Actualizar año automáticamente
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menú hamburguesa
+    const toggle = document.querySelector('.toggle');
+    const menu = document.querySelector('.menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    const menuLinks = document.querySelectorAll('.menu a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+    });
+
+    // Inicialización del Swiper
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 30
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 40
+        }
+      }
+    });
+
+    // Efecto smooth scroll para los enlaces
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Control de transición entre videos
+    const video1 = document.getElementById('video1');
+    const video2 = document.getElementById('video2');
+    
+    // Cuando el primer video termina, inicia la transición al segundo
+    video1.addEventListener('ended', function() {
+      video2.style.opacity = 0;
+      video2.play();
+      
+      // Transición suave
+      let opacity = 0;
+      const fadeInInterval = setInterval(() => {
+        opacity += 0.05;
+        video2.style.opacity = opacity;
+        
+        if (opacity >= 1) {
+          clearInterval(fadeInInterval);
+          video1.style.opacity = 0;
+        }
+      }, 50);
+    });
+    
+    // Cuando el segundo video termina, vuelve al primero
+    video2.addEventListener('ended', function() {
+      video1.style.opacity = 0;
+      video1.currentTime = 0;
+      video1.play();
+      
+      // Transición suave
+      let opacity = 0;
+      const fadeInInterval = setInterval(() => {
+        opacity += 0.05;
+        video1.style.opacity = opacity;
+        
+        if (opacity >= 1) {
+          clearInterval(fadeInInterval);
+          video2.style.opacity = 0;
+        }
+      }, 50);
+    });
   </script>
 </body>
 </html>
